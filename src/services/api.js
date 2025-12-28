@@ -1,5 +1,4 @@
-// Use empty string for Vite proxy in browser, absolute URL for Node.js testing
-const BASE_URL = 'https://dramabox-api-rho.vercel.app';
+const BASE_URL = ''; // Relative path so Vercel proxy handles it
 
 export const api = {
     getHome: async () => {
