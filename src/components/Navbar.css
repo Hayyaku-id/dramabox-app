@@ -1,0 +1,158 @@
+/* Navbar Styles */
+.navbar {
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 4%;
+    position: relative;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.search-form {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 0.3s ease;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-wrapper.focused {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    margin-left: 12px;
+    outline: none;
+    width: 100%;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    color: var(--text-primary);
+    background: none;
+    padding: 8px;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+    .nav-left {
+        gap: 20px;
+    }
+
+    .nav-links {
+        display: none;
+        /* Hide default links */
+    }
+
+    .mobile-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .nav-mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--surface-color);
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        animation: slideDown 0.3s ease-out;
+    }
+
+    /* When search is active on mobile, hide logo optionally or stack */
+    .nav-container {
+        gap: 15px;
+    }
+
+    .search-form {
+        max-width: none;
+        flex: 1;
+    }
+
+    .nav-logo {
+        font-size: 1.5rem;
+        /* Hide logo on very small screens if search is needed, 
+       but for now flex-shrink handles it or we wrap */
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
