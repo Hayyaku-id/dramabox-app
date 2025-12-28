@@ -1,5 +1,5 @@
 // Use empty string for Vite proxy in browser, absolute URL for Node.js testing
-const BASE_URL = typeof window === 'undefined' ? 'https://dramabox-api-rho.vercel.app' : '';
+const BASE_URL = 'https://dramabox-api-rho.vercel.app';
 
 export const api = {
     getHome: async () => {
